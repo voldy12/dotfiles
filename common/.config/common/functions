@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# List files in order of ascending size (the second form takes a file-pattern argument):
+function lsdu() { ls -l $* | sort --key=5.1 -n; };
+function lsduf() { ls -l | grep -E $* | sort --key=5.1 -n; };
+
+# remove duplicate path entries
+export PATH=$(echo $PATH | awk -F: '
+{ for (i = 1; i <= NF; i++) arr[$i]; }
+END { for (i in arr) printf "%s:" , i; printf "\n"; } ')
+
+
