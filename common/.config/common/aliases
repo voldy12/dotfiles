@@ -27,7 +27,7 @@ alias h='history'
 alias j='jobs -l'
 
 # show open ports
-alias ports='netstat -tulanp'
+alias ports='ss -tulanp'
 
 # Resume wget by default
 alias wget='wget -c'
