@@ -44,6 +44,7 @@ alias pls='please'
 # Ubuntu Specific
 alias sau='sudo apt update'
 alias sag='sudo apt upgrade'
+alias sai='sudo apt install'
 
 # if exa exists use exa
 if command -v exa &> /dev/null
@@ -54,4 +55,9 @@ then
     alias lt='exa -aT --icons --color=always --group-directories-first' # tree listing
     alias l.='la -d .*'
 
+fi
+
+if command -v exa &> /dev/null
+then
+    alias cat='bat'
 fi
