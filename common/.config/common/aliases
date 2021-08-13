@@ -39,9 +39,19 @@ alias rm='rm -i'
 alias hogs='ps uxga | sort --key=3.1 -n | head -n 10'
 # Run last command with sudo
 alias please='sudo $(fc -ln -1)'
+alias pls='please'
+
+# Ubuntu Specific
+alias sau='sudo apt update'
+alias sag='sudo apt upgrade'
 
 # if exa exists use exa
 if command -v exa &> /dev/null
 then
-    alias ls=exa
+    alias ls='exa --icons --color=always --group-directories-first' # my preferred listing
+    alias la='exa -a --icons --color=always --group-directories-first'  # all files and dirs
+    alias ll='exa -al --icons --color=always --group-directories-first'  # long format
+    alias lt='exa -aT --icons --color=always --group-directories-first' # tree listing
+    alias l.='la -d .*'
+
 fi
