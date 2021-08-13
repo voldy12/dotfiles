@@ -51,7 +51,7 @@ function add_file() {
 add_file "$HOME/.config/common/functions"
 add_file "$HOME/.config/common/aliases"
 add_file "$HOME/.config/common/exports"
-
+add_file "$HOME/.config/common/paths"
 
 # zsh spefic things now 
 add_file "$ZDOTDIR/zsh-functions"
