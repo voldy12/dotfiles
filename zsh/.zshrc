@@ -39,20 +39,15 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # ls colors
 . "$HOME/.local/share/lscolors.sh"
 
-# import common aliases 
-if [ -f "$HOME/.config/common/aliases" ] ; then
-    . "$HOME/.config/common/aliases"
-fi
+# import function to source file 
+function add_file() {
+    [ -f "$1" ] && source "$1"
+}
 
-# import common functions 
-if [ -f "$HOME/.config/common/functions" ] ; then
-    . "$HOME/.config/common/functions"
-fi
+add_file "$HOME/.config/common/functions"
+add_file "$HOME/.config/common/aliases"
+add_file "$HOME/.config/common/exports"
 
-# import common exports 
-if [ -f "$HOME/.config/common/exports" ] ; then
-    . "$HOME/.config/common/exports"
-fi
 
 # Starship Shell
 eval "$(starship init zsh)"

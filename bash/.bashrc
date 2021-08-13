@@ -96,25 +96,18 @@ fi
 #ls colors
 . "$HOME/.local/share/lscolors.sh"
 
-# autocomplete ssh commands
-complete -W "$(cat ~/.bash_history | grep -E '^ssh ' | sort | uniq | sed 's/^ssh //')" ssh
+# import function to source file 
+function add_file() {
+    [ -f "$1" ] && source "$1"
+}
 
+add_file "$HOME/.config/common/functions"
+add_file "$HOME/.config/common/aliases"
+add_file "$HOME/.config/common/exports"
 
-# import common aliases 
-if [ -f "$HOME/.config/common/aliases" ] ; then
-    . "$HOME/.config/common/aliases"
-fi
-
-# import common functions 
-if [ -f "$HOME/.config/common/functions" ] ; then
-    . "$HOME/.config/common/functions"
-fi
-
-# import common exports 
-if [ -f "$HOME/.config/common/exports" ] ; then
-    . "$HOME/.config/common/exports"
-fi
 
 # starship shell
 eval "$(starship init bash)"           
 
+# autocomplete ssh commands
+complete -W "$(cat ~/.bash_history | grep -E '^ssh ' | sort | uniq | sed 's/^ssh //')" ssh
