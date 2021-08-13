@@ -4,3 +4,6 @@ sudo apt update && sudo apt install -y \
   exa \
   git \ 
   htop \
+  nnn \
+  fzf \
+  

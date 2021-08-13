@@ -111,3 +111,5 @@ eval "$(starship init bash)"
 
 # autocomplete ssh commands
 complete -W "$(cat ~/.bash_history | grep -E '^ssh ' | sort | uniq | sed 's/^ssh //')" ssh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
