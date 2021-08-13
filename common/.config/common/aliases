@@ -34,6 +34,13 @@ alias wget='wget -c'
 alias df='df -H'
 alias du='du -ch'
 alias rm='rm -i'
+alias free='free -m'                      # show sizes in MB
+
+# gpg encryption
+# verify signature for isos
+alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify"
+# receive the key of a developer
+alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys"
 
 # System Aliases
 alias hogs='ps uxga | sort --key=3.1 -n | head -n 10'
