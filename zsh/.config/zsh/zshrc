@@ -53,11 +53,8 @@ add_file "$HOME/.config/common/aliases"
 add_file "$HOME/.config/common/exports"
 
 
-# # zsh config dir
-# export ZDOTDIR=$HOME/.config/zsh
-
 # zsh spefic things now 
-add_file "$HOME/.config/zsh/zsh-functions"
+add_file "$ZDOTDIR/zsh-functions"
 
 
 # Starship Shell
