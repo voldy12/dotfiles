@@ -9,9 +9,12 @@ setopt histignorealldups sharehistory
 # Use emacs keybindings even if our EDITOR is set to vi
 # bindkey -e
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+# beeping is annoying
+unsetopt BEEP
+
+# Keep 10000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 # Use modern completion system
@@ -44,9 +47,17 @@ function add_file() {
     [ -f "$1" ] && source "$1"
 }
 
+# common functions for all posix shells
 add_file "$HOME/.config/common/functions"
 add_file "$HOME/.config/common/aliases"
 add_file "$HOME/.config/common/exports"
+
+
+# # zsh config dir
+# export ZDOTDIR=$HOME/.config/zsh
+
+# zsh spefic things now 
+add_file "$HOME/.config/zsh/zsh-functions"
 
 
 # Starship Shell
