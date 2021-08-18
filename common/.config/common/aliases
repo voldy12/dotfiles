@@ -33,7 +33,7 @@ alias ports='ss -tulanp'
 alias wget='wget -c'
 alias df='df -H'
 alias du='du -ch'
-alias rm='rm -i'
+# alias rm='rm -i'
 alias free='free -m'                      # show sizes in MB
 
 # gpg encryption
