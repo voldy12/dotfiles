@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+set -e
+
+url=$(curl -s https://api.github.com/repos/$1/releases/latest | grep -E "$2" | grep -v "$3" | grep -o \"https://.*\" | sed -e 's/^"//' -e 's/"$//')
+echo " Found URL $url"
+filename=$(echo $url | cut -d/ -f9)
+echo "Found Filename $filename"
+curl -fLJO $url
+
+if [ -f $filename ] ; then
+      case $2 in
+          *.tar.bz2)   tar xvjf $filename && rm -f $filename   ;;
+          *.tar.gz)    tar xvzf $filename && rm -f $filename   ;;
+          *.bz2)       bunzip2 $filename  && rm -f $filename  ;;
+          *.deb)       sudo dpkg -i $filename && rm -f $filename       ;;
+          *.Appimage)       mv $filename ~/bin/        ;;
+          *)           echo "don't know '$filename'..." ;;
+      esac
+  else
+      echo "'$filename' is not a valid file!"
+  fi
