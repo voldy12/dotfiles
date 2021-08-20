@@ -112,4 +112,12 @@ eval "$(starship init bash)"
 # autocomplete ssh commands
 complete -W "$(cat ~/.bash_history | grep -E '^ssh ' | sort | uniq | sed 's/^ssh //')" ssh
 
+# fzf init
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Zoxide init
+eval "$(zoxide init bash)"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
