@@ -68,3 +68,10 @@ if command -v exa &> /dev/null
 then
     alias cat='bat'
 fi
+
+# cd ladder
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."

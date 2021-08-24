@@ -1,2 +1,3 @@
 #!/usr/bin/env sh
-pip install xxh-xxh
+#https://pypi.org/project/xxh-xxh/
+pip install xxh-xxh  
