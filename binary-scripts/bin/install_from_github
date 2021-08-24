@@ -15,7 +15,7 @@ if [ -f $filename ] ; then
           *.tar.gz)    tar -xzf $filename && rm -f $filename   ;;
           *.bz2)       bunzip2 $filename  && rm -f $filename  ;;
           *.deb)       sudo dpkg -i $filename && rm -f $filename       ;;
-          *.Appimage)      mkdir -p ~/bin && mv $filename ~/bin/        ;;
+          *.Appimage)      mkdir -p ~/Applications && mv $filename ~/Applications/"${filename%.*}"        ;;
           *)           echo "don't know '$filename'..." ;;
       esac
   else
