@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 set -e
+#Case insenstive matching for filenames
+shopt -s nocasematch
+
 # Postional arguments are user/repo filetype:regular-expression not-filetype
 # all 3 arguments are required 
 # eg: bootandy/dust x86_64-unknown-linux-gnu.tar.gz musl
