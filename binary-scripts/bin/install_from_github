@@ -9,16 +9,16 @@ shopt -s nocasematch
 # stdout: filename of downloaded file will be printed or can be piped
 
 url=$(curl -s https://api.github.com/repos/$1/releases/latest | grep -E "$2" | grep -v "$3" | grep -o \"https://.*\" | sed -e 's/^"//' -e 's/"$//')
-filename=$(echo $url | cut -d/ -f9)
-curl -fsLJO $url
+filename=$(echo "$url" | cut -d/ -f9)
+curl -fsLJO "$url"
 
-if [ -f $filename ] ; then
+if [ -f "$filename" ] ; then
       case $2 in
-          *.tar.bz2)   tar -xjf $filename && rm -f $filename   ;;
-          *.tar.gz)    tar -xzf $filename && rm -f $filename   ;;
-          *.bz2)       bunzip2 $filename  && rm -f $filename  ;;
-          *.deb)       sudo dpkg -i $filename && rm -f $filename       ;;
-          *.Appimage)      mkdir -p ~/Applications && mv $filename ~/Applications/"${filename%.*}"        ;;
+          *.tar.bz2)   tar -xjf "$filename" && rm -f "$filename"   ;;
+          *.tar.gz)    tar -xzf "$filename" && rm -f "$filename"   ;;
+          *.bz2)       bunzip2 "$filename"  && rm -f "$filename"  ;;
+          *.deb)       sudo dpkg -i "$filename" && rm -f "$filename"       ;;
+          *.Appimage)      mkdir -p ~/Applications && chmod +x "$filename" && mv "$filename" ~/Applications/"${filename%.*}"        ;;
           *)           echo "don't know '$filename'..." ;;
       esac
   else
