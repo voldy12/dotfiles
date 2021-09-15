@@ -11,3 +11,5 @@ setxkbmap -option caps:escape
 # swap escape and caps
 # setxkbmap -option caps:swapescape
 
+xrandr --output Virtual-1 --mode 1920x1080
+feh --bg-fill --randomize ~/Pictures/wallpapers/

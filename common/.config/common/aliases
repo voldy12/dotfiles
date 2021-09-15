@@ -53,6 +53,9 @@ alias sau='sudo apt update'
 alias sag='sudo apt upgrade'
 alias sai='sudo apt install'
 
+#Arch
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+
 # if exa exists use exa
 if command -v exa &> /dev/null
 then
