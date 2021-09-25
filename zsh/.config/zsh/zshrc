@@ -4,7 +4,7 @@ setopt histignorealldups sharehistory appendhistory
 # Keep 100000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=100000
 SAVEHIST=100000
-HISTFILE="$HOME/.local/share/zsh/history"
+HISTFILE="$HOME/.zsh_history"
 
 # some useful options (man zshoptions)
 setopt autocd extendedglob nomatch menucomplete
@@ -19,6 +19,8 @@ unsetopt BEEP
 # completions
 autoload -Uz compinit
 zstyle ':completion:*' menu select
+# Case Insensitive Matching
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 # zstyle ':completion::complete:lsof:*' menu yes select
 zmodload zsh/complist
 # compinit
